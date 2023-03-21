@@ -2,17 +2,22 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using History;
 
 namespace Map
 {
     public class MapManager
     {
         private List<State> States = new List<State>();
+        private List<Country> Countries = new List<Country>();
 
-        public MapManager(List<State> states)
+        public MapManager(List<State> states, List<Country> countries)
         {
             this.States = states;
             UnityEngine.Debug.Log($"Loaded {this.States.Count} states");
+
+            this.Countries = countries;
+            UnityEngine.Debug.Log($"Loaded {this.Countries.Count} countries");
         }
 
         public void SetRandomColorByState()

@@ -15,6 +15,9 @@ public static class Constants
     public static readonly string MapFilePath = $"{Constants.GameDataPath}/map";
     public static readonly string StateFilePath = $"{Constants.MapFilePath}/state";
 
+    public static readonly string HistoryFilePath = $"{Constants.GameDataPath}/history";
+    public static readonly string CountryFilePath = $"{Constants.GameDataPath}/history/country";
+
     // instance
     public static Script LuaEngine = new Script();
 }

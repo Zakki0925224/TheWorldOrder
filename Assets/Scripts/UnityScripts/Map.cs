@@ -1,9 +1,11 @@
+using System.Text;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Map;
+using History;
 using ShpLoader;
 using MoonSharp.Interpreter;
 
@@ -41,6 +43,7 @@ namespace UnityScripts
                 var engine = Constants.LuaEngine;
                 engine.DoFile(filePath);
                 var id = (string)engine.Globals["id"];
+                var name = (string)engine.Globals["name"];
                 var provinceId = ((Table)engine.Globals["provinces"]).Values.Select(v => v.CastToString()).ToArray();
 
                 var provincesInState = new List<Province>();
@@ -57,10 +60,38 @@ namespace UnityScripts
                     }
                 }
 
-                states.Add(new State(id, provincesInState));
+                states.Add(new State(id, provincesInState, name));
             }
 
-            this.Manager = new MapManager(states);
+            // register countries
+            var countries = new List<Country>();
+            var countryDefineScripts = Directory.GetFiles(Constants.CountryFilePath, $"*{Constants.ScriptExtension}");
+            foreach (var filePath in countryDefineScripts)
+            {
+                var engine = Constants.LuaEngine;
+                engine.DoFile(filePath);
+                var id = (string)engine.Globals["id"];
+                var name = (string)engine.Globals["name"];
+                var stateId = ((Table)engine.Globals["states"]).Values.Select(v => v.CastToString()).ToArray();
+
+                var statesInCountry = new List<State>();
+                foreach (var sId in stateId)
+                {
+                    var found = states.Find(s => s.Id == sId);
+                    if (found != null)
+                    {
+                        statesInCountry.Add(found);
+                    }
+                    else
+                    {
+                        UnityEngine.Debug.LogWarning($"State id: {sId} was not found at {filePath}");
+                    }
+                }
+
+                countries.Add(new Country(id, statesInCountry, name));
+            }
+
+            this.Manager = new MapManager(states, countries);
             this.Manager.SetRandomColorByState();
         }
 
