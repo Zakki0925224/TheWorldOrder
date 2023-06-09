@@ -6,7 +6,7 @@ using ImGuiNET;
 
 namespace UnityScripts
 {
-    public class Gui : MonoBehaviour
+    public class UI : MonoBehaviour
     {
         private void OnEnable()
         {

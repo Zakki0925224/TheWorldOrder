@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Map;
 using History;
 using ShpLoader;
@@ -25,14 +26,35 @@ namespace UnityScripts
                 var provinceObject = this.gameObject.transform.GetChild(i).gameObject;
                 var record = provinceObject.GetComponent<ObjectRecord>();
                 var id = record.Record["iso_3166_2"];
-                var objects = new List<GameObject>();
+                var combineMeshes = new List<CombineInstance>();
 
                 for (var j = 0; j < provinceObject.transform.childCount; j++)
                 {
-                    objects.Add(provinceObject.transform.GetChild(j).gameObject);
+                    var childGameObject = provinceObject.transform.GetChild(j).gameObject;
+                    var childMeshFilter = childGameObject.GetComponent<MeshFilter>();
+
+                    var combineMesh = new CombineInstance();
+                    combineMesh.mesh = childMeshFilter.sharedMesh;
+                    combineMesh.transform = childMeshFilter.transform.localToWorldMatrix;
+
+                    childMeshFilter.gameObject.SetActive(false);
+
+                    combineMeshes.Add(combineMesh);
                 }
 
-                provinces.Add(new Province(id, objects));
+                var meshFilter = provinceObject.AddComponent<MeshFilter>() as MeshFilter;
+                var meshRenderer = provinceObject.AddComponent<MeshRenderer>() as MeshRenderer;
+
+                meshFilter.mesh = new Mesh();
+                meshFilter.mesh.CombineMeshes(combineMeshes.ToArray());
+                meshRenderer.material = new Material(Shader.Find("Standard"));
+
+                var collider = provinceObject.AddComponent<MeshCollider>() as MeshCollider;
+                collider = new MeshCollider();
+
+                provinceObject.AddComponent<ClickObjectEvent>();
+
+                provinces.Add(new Province(id, provinceObject));
             }
 
             // register states

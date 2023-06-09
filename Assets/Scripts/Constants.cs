@@ -20,4 +20,9 @@ public static class Constants
 
     // instance
     public static Script LuaEngine = new Script();
+
+    // camera
+    public static float MinCameraPositionY = 10;
+    public static float MaxCameraPositionY = 200;
+    public static float MoveCameraSpeed = 100;
 }

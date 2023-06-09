@@ -28,10 +28,7 @@ namespace Map
 
                 foreach (var province in state.Provinces)
                 {
-                    foreach (var obj in province.GameObjects)
-                    {
-                        obj.GetComponent<MeshRenderer>().material.color = color;
-                    }
+                    province.GameObject.GetComponent<MeshRenderer>().material.color = color;
                 }
             }
         }

@@ -15,8 +15,8 @@ MonoBehaviour:
   Rasterizer: 0
   RasterizerFlags: 0
   Fonts:
-  - _fontAsset: {fileID: 102900000, guid: be3c15a6d1e1a8d5890ebeb5856f66be, type: 3}
-    FontPath: ShareTechMono-Regular.ttf
+  - _fontAsset: {fileID: 102900000, guid: c7e3b8f544cbbab8ab17e581f6d59b25, type: 3}
+    FontPath: CozetteVector.ttf
     Config:
       FontIndexInFile: 0
       SizeInPixels: 15
