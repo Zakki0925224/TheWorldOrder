@@ -9,12 +9,13 @@ using Map;
 using History;
 using ShpLoader;
 using MoonSharp.Interpreter;
+using UnityScripts.Events;
 
 namespace UnityScripts
 {
     public class Map : MonoBehaviour
     {
-        private MapManager Manager;
+        public MapManager Manager;
 
         // Start is called before the first frame update
         void Start()
@@ -25,7 +26,7 @@ namespace UnityScripts
             {
                 var provinceObject = this.gameObject.transform.GetChild(i).gameObject;
                 var record = provinceObject.GetComponent<ObjectRecord>();
-                var id = record.Record["iso_3166_2"];
+                var id = record.Record[Constants.ObjectRecordProvinceNameKey];
                 var combineMeshes = new List<CombineInstance>();
 
                 for (var j = 0; j < provinceObject.transform.childCount; j++)
@@ -52,7 +53,7 @@ namespace UnityScripts
                 var collider = provinceObject.AddComponent<MeshCollider>() as MeshCollider;
                 collider = new MeshCollider();
 
-                provinceObject.AddComponent<ClickObjectEvent>();
+                provinceObject.AddComponent<ProvinceObjectEvent>();
 
                 provinces.Add(new Province(id, provinceObject));
             }
@@ -110,17 +111,19 @@ namespace UnityScripts
                     }
                 }
 
-                countries.Add(new Country(id, statesInCountry, name));
+                // load flag
+                var flagPath = $"{Constants.FlagsFilePath}/${id}.png";
+
+                if (!File.Exists(flagPath))
+                    flagPath = $"{Constants.FlagsFilePath}/Unknown.png";
+
+                var sprite = Constants.LoadPng(flagPath);
+
+                countries.Add(new Country(id, statesInCountry, name, sprite));
             }
 
             this.Manager = new MapManager(states, countries);
-            this.Manager.SetRandomColorByState();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            this.Manager.SetRandomColorByCountry();
         }
     }
 }

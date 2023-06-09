@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using ImGuiNET;
 
@@ -20,7 +18,11 @@ namespace UnityScripts
 
         private void OnLayout()
         {
-            ImGui.ShowDemoWindow();
+            if (ImGui.Begin("hello"))
+            {
+                ImGui.TextUnformatted("hello");
+            }
+            ImGui.End();
         }
     }
 }

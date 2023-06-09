@@ -7,18 +7,8 @@ namespace ShpLoader
     public class ObjectRecord : MonoBehaviour
     {
         public Dictionary<string, string> Record;
+        // For debug from unity inspector
         public List<string> RecordList;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
+
