@@ -1,0 +1,3 @@
+id = "689"
+provinces = {"LVA-5742", "LVA-5743", "LVA-5744", "LVA-5745", "LVA-1065", "LVA-5746", "LVA-5749", "LVA-1081", "LVA-5747", "LVA-1064", "LVA-1063", "LVA-1066", "LVA-5741", "LVA-5748", "LVA-5752", "LVA-5753", "LVA-1089", "LVA-5750", "LVA-5751", "LVA-4850", "LVA-4851"}
+name = "Latgale"

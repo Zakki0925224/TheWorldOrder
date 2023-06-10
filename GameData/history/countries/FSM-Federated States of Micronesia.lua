@@ -1,3 +1,3 @@
 id = "FSM"
 name = "Federated States of Micronesia"
-states = {"2535", "2536", "2537"}
+states = {"3082", "3083", "3084"}

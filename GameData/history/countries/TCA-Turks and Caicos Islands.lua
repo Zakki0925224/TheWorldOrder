@@ -1,3 +1,3 @@
 id = "TCA"
 name = "Turks and Caicos Islands"
-states = {"2248", "2249", "2250", "2251", "2252"}
+states = {"2786", "2787", "2788", "2789", "2790"}

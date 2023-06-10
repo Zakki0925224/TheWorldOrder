@@ -1,3 +1,3 @@
 id = "MLT"
 name = "Malta"
-states = {"2461", "2462"}
+states = {"3002", "3003"}

@@ -64,7 +64,7 @@ namespace Map
 
         public Province FindProvinceByProvinceObjectRecord(ObjectRecord objectRecord)
         {
-            var provinceId = objectRecord.Record[Constants.ObjectRecordProvinceNameKey];
+            var provinceId = objectRecord.Record[Constants.ObjectRecordProvinceIdKey];
 
             foreach (var state in this.States)
             {

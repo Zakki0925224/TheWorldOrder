@@ -1,3 +1,3 @@
 id = "WLF"
 name = "Wallis and Futuna"
-states = {"2492", "2493"}
+states = {"3038", "3039"}

@@ -1,3 +1,3 @@
 id = "VCT"
 name = "Saint Vincent and the Grenadines"
-states = {"2350", "2351", "2352", "2353", "2354"}
+states = {"2892", "2893", "2894", "2895", "2896"}

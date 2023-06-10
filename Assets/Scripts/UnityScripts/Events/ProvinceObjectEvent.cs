@@ -17,8 +17,23 @@ namespace UnityScripts.Events
             var state = mapManager.FindStateByProvinceObjectRecord(objectRecord);
             var country = mapManager.FindCountryByProvinceObjectRecord(objectRecord);
 
-            if (province == null || state == null || country == null)
+            if (province == null)
+            {
+                Debug.Log($"The province was not defined");
                 return;
+            }
+
+            if (state == null)
+            {
+                Debug.Log($"The state was not defined");
+                return;
+            }
+
+            if (country == null)
+            {
+                Debug.Log($"The country was not defined");
+                return;
+            }
 
             Debug.Log($"Country: {country.Name}, State: {state.Name}, Province id: {province.Id}");
         }

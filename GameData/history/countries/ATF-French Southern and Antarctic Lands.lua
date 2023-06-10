@@ -1,3 +1,3 @@
 id = "ATF"
 name = "French Southern and Antarctic Lands"
-states = {"2300", "2301", "2302"}
+states = {"2841", "2842", "2843"}

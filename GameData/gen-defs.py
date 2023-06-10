@@ -1,3 +1,4 @@
+import sys
 import os
 import dbf
 
@@ -16,7 +17,8 @@ if states_file_len > 0:
     print(f"Warning: Directory \"{states_path}\" was not empty.")
     exit(1)
 
-table = dbf.Table(dbf_path)
+
+table = dbf.Table(filename=dbf_path, codepage="utf8")
 table.open(dbf.READ_ONLY)
 
 countries = []
@@ -25,13 +27,14 @@ country["provinces"] = []
 
 for record in table:
     try:
-        pid = str(record["iso_3166_2"]).strip()
+        pid = str(record["adm1_code"]).strip()
         cid = str(record["adm0_a3"]).strip()
         cname = str(record["admin"]).strip()
         pname = str(record["name"]).strip().replace("/", "_")
         region = str(record["region"]).strip().replace("/", "_")
 
     except:
+        print(record)
         continue
 
     if len(country.keys()) > 1 and country["cid"] != cid:

@@ -1,3 +1,3 @@
 id = "SDS"
 name = "S. Sudan"
-states = {"162", "163", "165"}
+states = {"200", "201", "203"}

@@ -1,3 +1,3 @@
 id = "NCL"
 name = "New Caledonia"
-states = {"2137"}
+states = {"2658", "2659"}

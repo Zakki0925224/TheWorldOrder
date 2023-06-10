@@ -1,0 +1,3 @@
+id = "1734"
+provinces = {"SVN-1044", "SVN-196", "SVN-201", "SVN-928", "SVN-197", "SVN-264", "SVN-271", "SVN-1043", "SVN-931", "SVN-926", "SVN-927", "SVN-5884", "SVN-263", "SVN-265", "SVN-269", "SVN-1047", "SVN-929", "SVN-202", "SVN-1045", "SVN-1049", "SVN-930", "SVN-1048", "SVN-270", "SVN-1039", "SVN-267", "SVN-1046", "SVN-266"}
+name = "Pomurska"

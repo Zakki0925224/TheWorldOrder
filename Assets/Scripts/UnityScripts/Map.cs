@@ -26,7 +26,7 @@ namespace UnityScripts
             {
                 var provinceObject = this.gameObject.transform.GetChild(i).gameObject;
                 var record = provinceObject.GetComponent<ObjectRecord>();
-                var id = record.Record[Constants.ObjectRecordProvinceNameKey];
+                var id = record.Record[Constants.ObjectRecordProvinceIdKey];
                 var combineMeshes = new List<CombineInstance>();
 
                 for (var j = 0; j < provinceObject.transform.childCount; j++)
@@ -123,7 +123,7 @@ namespace UnityScripts
             }
 
             this.Manager = new MapManager(states, countries);
-            this.Manager.SetRandomColorByCountry();
+            this.Manager.SetRandomColorByState();
         }
     }
 }

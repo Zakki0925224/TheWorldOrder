@@ -1,0 +1,3 @@
+id = "1742"
+provinces = {"SVN-251", "SVN-983", "SVN-982", "SVN-213", "SVN-255", "SVN-995", "SVN-963", "SVN-210", "SVN-960", "SVN-252", "SVN-241", "SVN-1001", "SVN-244", "SVN-994", "SVN-973", "SVN-1002", "SVN-223", "SVN-1007", "SVN-949", "SVN-239", "SVN-941", "SVN-975", "SVN-243", "SVN-980", "SVN-997", "SVN-992", "SVN-220", "SVN-957", "SVN-993", "SVN-224", "SVN-247", "SVN-240", "SVN-939"}
+name = "Savinjska"

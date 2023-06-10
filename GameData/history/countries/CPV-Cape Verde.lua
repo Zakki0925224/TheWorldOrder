@@ -1,3 +1,3 @@
 id = "CPV"
 name = "Cape Verde"
-states = {"2460"}
+states = {"3000", "3001"}

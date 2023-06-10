@@ -1,3 +1,3 @@
 id = "PYF"
 name = "French Polynesia"
-states = {"2296", "2297", "2298", "2299"}
+states = {"2837", "2838", "2839", "2840"}

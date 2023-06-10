@@ -1,3 +1,3 @@
 id = "SPM"
 name = "Saint Pierre and Miquelon"
-states = {"2288"}
+states = {"2823"}

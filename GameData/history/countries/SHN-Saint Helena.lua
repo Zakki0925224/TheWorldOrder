@@ -1,3 +1,3 @@
 id = "SHN"
 name = "Saint Helena"
-states = {"2446", "2447"}
+states = {"2980", "2981"}

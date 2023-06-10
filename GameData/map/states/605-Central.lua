@@ -1,0 +1,3 @@
+id = "605"
+provinces = {"RUS-2343", "RUS-2342", "RUS-2362", "RUS-2370", "RUS-2377", "RUS-2363", "RUS-2375", "RUS-2366", "RUS-2361", "RUS-2356", "RUS-2360", "RUS-2376", "RUS-2374", "RUS-2355", "RUS-2368", "RUS-2358", "RUS-2364", "RUS-2365"}
+name = "Central"

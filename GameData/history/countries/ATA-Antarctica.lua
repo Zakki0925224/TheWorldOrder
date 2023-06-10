@@ -1,3 +1,3 @@
 id = "ATA"
 name = "Antarctica"
-states = {"2128"}
+states = {"2649"}

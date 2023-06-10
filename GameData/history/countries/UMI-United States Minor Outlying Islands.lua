@@ -1,3 +1,3 @@
 id = "UMI"
 name = "United States Minor Outlying Islands"
-states = {"2383", "2384", "2385", "2386", "2387", "2388", "2389"}
+states = {"2926", "2927", "2928", "2929", "2930", "2931", "2932"}

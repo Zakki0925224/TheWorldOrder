@@ -1,3 +1,3 @@
 id = "BIH"
 name = "Bosnia and Herzegovina"
-states = {"1763", "1764"}
+states = {"2188", "2189"}

@@ -1,0 +1,3 @@
+id = "691"
+provinces = {"LVA-1068", "LVA-5718", "LVA-5715", "LVA-5713", "LVA-5717", "LVA-4848", "LVA-5716", "LVA-5719", "LVA-934", "LVA-4852", "LVA-5721", "LVA-5722", "LVA-1091", "LVA-5723", "LVA-5714", "LVA-5709", "LVA-5710", "LVA-5712", "LVA-5711", "LVA-5720"}
+name = "Kurzeme"

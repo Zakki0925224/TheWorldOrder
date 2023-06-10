@@ -1,3 +1,3 @@
 id = "KIR"
 name = "Kiribati"
-states = {"2327"}
+states = {"2869"}

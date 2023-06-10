@@ -1,3 +1,3 @@
 id = "KNA"
 name = "Saint Kitts and Nevis"
-states = {"2399"}
+states = {"2942"}

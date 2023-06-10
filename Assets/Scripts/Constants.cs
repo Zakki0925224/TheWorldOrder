@@ -24,7 +24,7 @@ public static class Constants
     public static readonly string FlagsFilePath = $"{Constants.GraphicsFilePath}/flags";
 
     // object record
-    public static readonly string ObjectRecordProvinceNameKey = "iso_3166_2";
+    public static readonly string ObjectRecordProvinceIdKey = "adm1_code";
 
     // instance
     public static Script LuaEngine = new Script();
