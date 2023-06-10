@@ -1,10 +1,9 @@
 using UnityEngine;
 using ImGuiNET;
 
-
-namespace UnityScripts
+namespace UnityScripts.UI
 {
-    public class UI : MonoBehaviour
+    public class GameUI : MonoBehaviour
     {
         private void OnEnable()
         {
