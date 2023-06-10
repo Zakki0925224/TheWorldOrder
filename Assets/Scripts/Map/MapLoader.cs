@@ -1,30 +1,49 @@
-using System.Text;
 using System.IO;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using Map;
-using History;
 using ShpLoader;
-using MoonSharp.Interpreter;
+using History;
+using Map;
+using UnityEngine;
 using UnityScripts.Events;
+using MoonSharp.Interpreter;
 
-namespace UnityScripts
+namespace Map
 {
-    public class Map : MonoBehaviour
+    public static class MapLoader
     {
-        public MapManager Manager;
+        public static MapManager Load()
+        {
+            IShpFile shapeFile = LoadFiles(Constants.ShpFilePath) as ShpFile;
+            var dbfFile = LoadFiles(Constants.DbfFilePath) as DbfFile;
+            var color = new Color();
+            return RenderFiles(color, shapeFile, dbfFile);
+        }
 
-        // Start is called before the first frame update
-        void Start()
+        private static IFile LoadFiles(string path)
+        {
+            IFile file = null;
+            var fileExt = Path.GetExtension(path);
+            file = FileFactory.CreateInstance(path);
+            file.Load();
+            return file;
+        }
+
+        private static MapManager RenderFiles(Color color, IShpFile shapeFile, DbfFile dbfFile)
+        {
+            var map = new GameObject("Map");
+            ((IRenderable)shapeFile).Render(color, dbfFile, map);
+            return InitMapManager(map);
+        }
+
+        private static MapManager InitMapManager(GameObject parentMapObject)
         {
             // register provinces
             var provinces = new List<Province>();
-            for (var i = 0; i < this.gameObject.transform.childCount; i++)
+            for (var i = 0; i < parentMapObject.transform.childCount; i++)
             {
-                var provinceObject = this.gameObject.transform.GetChild(i).gameObject;
+                var provinceObject = parentMapObject.transform.GetChild(i).gameObject;
                 var record = provinceObject.GetComponent<ObjectRecord>();
                 var id = record.Record[Constants.ObjectRecordProvinceIdKey];
                 var combineMeshes = new List<CombineInstance>();
@@ -79,7 +98,7 @@ namespace UnityScripts
                     }
                     else
                     {
-                        UnityEngine.Debug.LogWarning($"Province id: {pId} was not found at {filePath}");
+                        Debug.LogWarning($"Province id: {pId} was not found at {filePath}");
                     }
                 }
 
@@ -107,12 +126,12 @@ namespace UnityScripts
                     }
                     else
                     {
-                        UnityEngine.Debug.LogWarning($"State id: {sId} was not found at {filePath}");
+                        Debug.LogWarning($"State id: {sId} was not found at {filePath}");
                     }
                 }
 
                 // load flag
-                var flagPath = $"{Constants.FlagsFilePath}/${id}.png";
+                var flagPath = $"{Constants.FlagsFilePath}/{id}.png";
 
                 if (!File.Exists(flagPath))
                     flagPath = $"{Constants.FlagsFilePath}/Unknown.png";
@@ -122,8 +141,8 @@ namespace UnityScripts
                 countries.Add(new Country(id, statesInCountry, name, sprite));
             }
 
-            this.Manager = new MapManager(states, countries);
-            this.Manager.SetRandomColorByState();
+            var mapManager = new MapManager(states, countries);
+            return mapManager;
         }
     }
 }

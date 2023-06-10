@@ -10,8 +10,8 @@ namespace UnityScripts.Events
         public void OnPointerClick(PointerEventData eventData)
         {
             var objectRecord = this.GetComponent<ObjectRecord>();
-            var map = GameObject.Find("Map").GetComponent<Map>();
-            var mapManager = map.Manager;
+            var game = GameObject.Find("Scripts").GetComponent<Game>();
+            var mapManager = game.MapManager;
 
             var province = mapManager.FindStateByProvinceObjectRecord(objectRecord);
             var state = mapManager.FindStateByProvinceObjectRecord(objectRecord);

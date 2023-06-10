@@ -123,5 +123,18 @@ namespace Map
 
             return null;
         }
+
+        public Country FindCountryById(string id)
+        {
+            foreach (var country in this.Countries)
+            {
+                if (country.Id == id)
+                {
+                    return country;
+                }
+            }
+
+            return null;
+        }
     }
 }
